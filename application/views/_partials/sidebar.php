@@ -25,9 +25,10 @@
             </li>
             <li class="menu-header"> Data </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-car"></i> <span> Empty Menu </span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-rocket fa-fw"></i> <span> Brand </span></a>
                 <ul class="dropdown-menu">
-                    <!-- <li><a class="nav-link" href="<?php echo base_url('stisla/mahasiswa/admin') ?>"> Data Pendaftar </a></li> -->
+                    <li><a class="nav-link" href="<?php echo base_url('products/add_brand') ?>"> Add Brand </a></li>
+                    <li><a class="nav-link" href="<?php echo base_url('products/stock_brand/') ?>"> Stock Available </a></li>
                 </ul>
             </li>
             <li class="menu-header"> Setting </li>

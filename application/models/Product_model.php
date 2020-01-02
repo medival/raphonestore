@@ -158,4 +158,19 @@ class Product_model extends CI_Model
             return array_map('unlink', glob(FCPATH . "upload/product/$filename.*"));
         }
     }
+
+    public function update_stok()
+    {
+        $post = $this->input->post();
+        $this->id_product = $post["id_product"];
+        $this->nama_product = $post["nama_product"];
+        $this->spesifikasi_product = $post["spesifikasi_product"];
+        $this->harga_product = $post["harga_product"];
+        $this->varian_product = $post["varian_product"];
+        $qty = $post["qty"];
+        $stok = $post["stok"];
+        $this->stok_product  = $stok - $qty;
+
+        $this->db->update($this->_table, $this, array('id_product' => $post['id_product']));
+    }
 }

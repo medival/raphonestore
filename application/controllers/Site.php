@@ -8,12 +8,14 @@ class Site extends CI_Controller
     {
         parent::__construct();
         $this->load->model("Product_model");
+        $this->load->model("Brand_model");
     }
 
     public function index($data = NULL)
     {
         $data['user'] = $this->db->get_where('tb_user', ['email' => $this->session->userdata('email')])->row_array();
         $data["product"] = $this->Product_model->getAll();
+        $data["brand"] = $this->Brand_model->getAll();
         $this->load->view('visit/stock', $data);
     }
 
@@ -26,7 +28,10 @@ class Site extends CI_Controller
 
         $this->id_product = $post["id_product"];
         $data["qty"] = $post["qty"];
+        $data["stok"] = $post["stok"];
+        $product = $this->Product_model;
         $data["product"] = $product->getById($this->id_product);
+        $product->update_stok();
 
         if (!$data["product"]) show_404();
 
